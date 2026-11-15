@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7f5ef">
+<title>살면서 봤던 명언 중에 진짜 최고다</title>
+<meta name="description" content="인생 명언 모음 — 주제별 검색, 복사, 카드 이미지 저장">
+<meta property="og:title" content="살면서 봤던 명언 중에 진짜 최고다">
+<meta property="og:description" content="주제별로 찾고, 복사하고, 카드 이미지로 저장하는 인생 명언 모음">
+<script>
+try{var t=localStorage.getItem("quote-theme");if(t==="dark")document.documentElement.dataset.theme="dark";
+var f=localStorage.getItem("quote-fs");if(f)document.documentElement.dataset.fs=f;}catch(e){}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gaegu:wght@700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f5ef; --card:#ffffff; --card2:#f2efe6; --line:#e6e1d4;
+  --text:#23211c; --muted:#6a6558;
+  --accent:#1f6b6e; --accent-ink:#ffffff; --accent-soft:#e3f1f1;
+  --hl:#ffe27a; --ycol:#23211c;
+  --gold:#f2c230; --gold-ink:#2a2205;
+  --orig:#555c6b; --ver:#17734f; --cau:#a8460f; --own:#2f4fb0;
+  --ok:#17734f; --ok-ink:#ffffff;
+  --cover:#a9d6d7;
+  --shadow:0 2px 10px rgba(60,50,20,.06);
+  --shadow2:0 8px 24px rgba(60,50,20,.12);
+  --qfs:19px;
+}
+[data-theme="dark"]{
+  --bg:#0d0d0e; --card:#18181b; --card2:#222226; --line:#2c2c31;
+  --text:#f3f1ea; --muted:#a29e94;
+  --accent:#f5d547; --accent-ink:#1a1606; --accent-soft:#2b2812;
+  --hl:transparent; --ycol:#f5d547;
+  --gold:#f5d547; --gold-ink:#1a1606;
+  --orig:#c9c5bb; --ver:#6fd3a4; --cau:#ff9f6b; --own:#9db4ff;
+  --ok:#6fd3a4; --ok-ink:#06140d;
+  --cover:#1d3a3b;
+  --shadow:0 6px 24px rgba(0,0,0,.35); --shadow2:0 10px 30px rgba(0,0,0,.5);
+}
+[data-fs="s"]{--qfs:17px} [data-fs="l"]{--qfs:22px} [data-fs="xl"]{--qfs:25px}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--text)}
+body{font-family:"Noto Sans KR",system-ui,-apple-system,sans-serif;line-height:1.6;padding-bottom:calc(90px + env(safe-area-inset-bottom))}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:8px}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px}
+
+/* Hero */
+.hero{padding:22px 0 8px}
+.cover{background:var(--cover);border-radius:24px;padding:34px 20px;text-align:center;box-shadow:var(--shadow)}
+.cover h1{font-family:"Gaegu",cursive;font-weight:700;font-size:40px;line-height:1.3;margin:0;color:#1d1d1d}
+[data-theme="dark"] .cover h1{color:#f3f1ea}
+.cover p{margin:12px 0 0;font-size:13px;color:#2c4a4b}
+[data-theme="dark"] .cover p{color:#a9cfd0}
+
+.today{margin-top:14px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow)}
+.today .lbl{font-size:11px;letter-spacing:.18em;color:var(--accent);font-weight:700}
+.today .q{margin-top:8px}
+.today .acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+
+/* Controls */
+.controls{position:sticky;top:0;z-index:20;background:var(--bg);padding:10px 0 8px;border-bottom:1px solid transparent}
+.controls.stuck{border-bottom-color:var(--line);box-shadow:0 6px 12px -10px rgba(0,0,0,.25)}
+.searchbox{display:flex;gap:8px;position:relative}
+.searchbox input{flex:1;min-width:0;font:inherit;font-size:16px;padding:11px 38px 11px 14px;border-radius:14px;border:1px solid var(--line);background:var(--card);color:var(--text);outline:none;-webkit-appearance:none}
+.searchbox input::-webkit-search-cancel-button{display:none}
+.searchbox input:focus{border-color:var(--accent)}
+.clear{position:absolute;right:108px;top:50%;transform:translateY(-50%);border:0;background:var(--card2);width:26px;height:26px;border-radius:50%;cursor:pointer;color:var(--muted);display:none}
+.clear.show{display:block}
+.iconbtn{flex:none;width:46px;border-radius:14px;border:1px solid var(--line);background:var(--card);font-size:18px;cursor:pointer}
+.iconbtn[aria-expanded="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.chips{display:flex;gap:6px;overflow-x:auto;padding:10px 0 2px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;font-size:13px;padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer;white-space:nowrap}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:700}
+.chip .n{opacity:.75;font-size:11px;margin-left:3px}
+.status{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:12px;color:var(--muted);min-height:26px}
+.status .txt{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.status b{color:var(--text)}
+.mini{font-size:12px;background:var(--card);border:1px solid var(--line);padding:4px 10px;border-radius:10px;cursor:pointer;white-space:nowrap}
+.mini:disabled{opacity:.4;cursor:default}
+
+/* Panel */
+.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px 16px;margin:10px 0;box-shadow:var(--shadow)}
+.panel h4{margin:12px 0 6px;font-size:13px;color:var(--muted);font-weight:500}
+.panel h4:first-child{margin-top:0}
+.panel .chips{padding-top:0;flex-wrap:wrap}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.seg button{border:0;background:var(--card);padding:6px 12px;cursor:pointer;font-size:13px}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);font-weight:700}
+.opt{display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer;margin:4px 0}
+.opt input{accent-color:var(--accent);width:18px;height:18px}
+.hint{font-size:12px;color:var(--muted);margin:6px 0 0}
+
+/* Sections & cards */
+.sec{margin:26px 0 8px;display:flex;align-items:baseline;gap:8px}
+.sec h2{font-family:"Gowun Batang",serif;font-size:20px;margin:0}
+.sec span{font-size:12px;color:var(--muted)}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 18px 14px;margin:10px 0;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s}
+@media (hover:hover){.card:hover{transform:translateY(-2px);box-shadow:var(--shadow2)}}
+.anim .card{animation:in .3s ease both}
+@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.card.flash{box-shadow:0 0 0 3px var(--accent)}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.tag{font-size:11px;padding:2px 8px;border-radius:6px;background:var(--card2);color:var(--muted)}
+.badge{font-size:11px;padding:1px 7px;border-radius:6px;font-weight:700;border:1px solid currentColor}
+.k-orig{color:var(--orig)} .k-ver{color:var(--ver)} .k-cau{color:var(--cau)} .k-own{color:var(--own)}
+.best{font-size:11px;padding:2px 8px;border-radius:6px;background:var(--gold);color:var(--gold-ink);font-weight:700}
+.q{font-family:"Gowun Batang",serif;font-size:var(--qfs);line-height:1.75;margin:0;word-break:keep-all}
+.q .y{display:block;margin-top:6px;color:var(--ycol)}
+.q .y > span{background:linear-gradient(transparent 58%,var(--hl) 58%);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.listh{font-family:"Gowun Batang",serif;color:var(--accent);font-size:calc(var(--qfs) - 1px);font-weight:700;margin:0 0 8px}
+.items{margin:0;padding:0;list-style:none;counter-reset:i}
+.items li{font-family:"Gowun Batang",serif;font-size:calc(var(--qfs) - 1px);padding:5px 0;border-bottom:1px dashed var(--line);counter-increment:i}
+.items li:last-child{border-bottom:0}
+.items li::before{content:counter(i)". ";color:var(--muted);font-size:.85em}
+.author{margin-top:12px;font-size:13px;color:var(--muted)}
+.author b{color:var(--text);font-weight:500}
+details.memo{margin-top:8px;font-size:12.5px;color:var(--muted);background:var(--card2);border-radius:10px;padding:7px 10px;line-height:1.55}
+details.memo summary{cursor:pointer;list-style:none;font-weight:500}
+details.memo summary::-webkit-details-marker{display:none}
+details.memo summary::before{content:"ⓘ ";}
+details.memo summary::after{content:" ▾";font-size:10px}
+details.memo[open] summary{margin-bottom:4px}
+.actions{display:flex;justify-content:flex-end;gap:6px;margin-top:12px;flex-wrap:wrap}
+.act{font-size:13px;display:inline-flex;align-items:center;gap:4px;padding:7px 11px;border-radius:10px;border:1px solid var(--line);background:var(--card2);cursor:pointer}
+.act.on{color:var(--accent);border-color:var(--accent);background:var(--accent-soft);font-weight:700}
+.act.done{background:var(--ok);color:var(--ok-ink);border-color:var(--ok)}
+mark{background:var(--hl);color:inherit;border-radius:3px;padding:0 1px}
+[data-theme="dark"] mark{background:#f5d547;color:#1a1606}
+.empty{text-align:center;color:var(--muted);padding:40px 10px;background:var(--card);border:1px dashed var(--line);border-radius:18px;margin-top:16px}
+
+/* Guide */
+details.guide{background:var(--card);border:1px solid var(--line);border-radius:18px;margin:28px 0 10px;overflow:hidden}
+details.guide summary{cursor:pointer;padding:16px 18px;font-weight:700;list-style:none}
+details.guide summary::-webkit-details-marker{display:none}
+details.guide summary::after{content:"＋";float:right;color:var(--muted)}
+details.guide[open] summary::after{content:"－"}
+.gbody{padding:0 18px 18px;font-size:14px}
+.gbody h3{font-size:15px;color:var(--accent);margin:18px 0 6px}
+.gbody ul{margin:0;padding-left:18px}
+.gbody li{margin:4px 0}
+.legend{display:grid;gap:8px;margin-top:6px}
+.legend div{display:flex;gap:8px;align-items:flex-start}
+.legend .badge{flex:none;margin-top:3px}
+
+/* Bottom bar, toast, modal */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--bg);background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .25s}
+.bar.show{transform:none}
+body.typing .bar{transform:translateY(110%)}
+.bar .in{max-width:720px;margin:0 auto;display:flex;gap:8px;align-items:center}
+.bar .info{flex:1;font-size:13px;color:var(--muted)}
+.bar .info b{color:var(--accent)}
+.bar button{font-size:14px;padding:10px 14px;border-radius:12px;border:0;cursor:pointer}
+.bar .primary{background:var(--accent);color:var(--accent-ink);font-weight:700}
+.bar .ghost{background:var(--card);border:1px solid var(--line)}
+.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom));transform:translate(-50%,20px);background:var(--text);color:var(--bg);padding:10px 16px;border-radius:12px;font-size:14px;opacity:0;pointer-events:none;transition:.2s;z-index:60;max-width:90vw;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.totop{position:fixed;right:16px;bottom:calc(90px + env(safe-area-inset-bottom));width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);font-size:18px;opacity:0;pointer-events:none;transition:.2s;z-index:25;box-shadow:var(--shadow2);cursor:pointer}
+.totop.show{opacity:1;pointer-events:auto}
+.modal{position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:16px}
+.modal.show{display:flex}
+.modal .box{background:var(--card);border-radius:18px;padding:18px;width:100%;max-width:520px;box-shadow:var(--shadow2)}
+.modal h3{margin:0 0 8px;font-size:16px}
+.modal p{margin:0 0 10px;font-size:13px;color:var(--muted)}
+.modal textarea{width:100%;height:200px;font:inherit;font-size:15px;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card2);color:var(--text)}
+.modal img{width:100%;border-radius:12px;display:block}
+.modal .row{display:flex;gap:8px;justify-content:flex-end;margin-top:10px}
+.modal .row button{padding:9px 14px;border-radius:10px;border:1px solid var(--line);background:var(--card2);cursor:pointer}
+.modal .row .primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:700}
+.foot{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 10px}
+
+@media (min-width:600px){.cover h1{font-size:48px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media print{
+  :root,[data-theme="dark"]{--bg:#fff;--card:#fff;--text:#000;--line:#ccc;--ycol:#000}
+  .controls,.panel,.bar,.totop,.toast,.actions,.today .acts,details.guide,.foot,.modal{display:none!important}
+  .card{break-inside:avoid;box-shadow:none}
+  details.memo{display:none}
+  body{padding:0}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="cover">
+      <h1>살면서 봤던<br>명언중에<br>진짜 최고다</h1>
+      <p id="total"></p>
+    </div>
+    <section class="today" id="today" aria-label="오늘의 명언"></section>
+  </header>
+
+  <div class="controls" id="controls">
+    <div class="searchbox">
+      <input id="q" type="search" placeholder="검색: 습관, 실패, 니체, 가족…" autocomplete="off" aria-label="명언 검색">
+      <button class="clear" id="clear" aria-label="검색어 지우기">✕</button>
+      <button class="iconbtn" id="panelBtn" aria-label="필터와 설정 열기" aria-expanded="false" aria-controls="panel">⚙</button>
+      <button class="iconbtn" id="theme" aria-label="밝게 또는 어둡게 보기">◐</button>
+    </div>
+    <div class="chips" id="cats" role="group" aria-label="주제"></div>
+    <div class="status">
+      <span class="txt" id="statusTxt" aria-live="polite"></span>
+      <button class="mini" id="reset" hidden>전체 해제</button>
+      <button class="mini" id="copyVisible">보이는 것 복사</button>
+    </div>
+  </div>
+
+  <section class="panel" id="panel" hidden>
+    <h4>출처 구분</h4>
+    <div class="chips" id="trusts" role="group" aria-label="출처 구분"></div>
+    <h4>복사 · 이미지 설정</h4>
+    <label class="opt"><input type="checkbox" id="withAuthor" checked> 복사·이미지에 저자·출처 포함</label>
+    <label class="opt"><input type="checkbox" id="numbered"> 여러 개 복사할 때 번호 붙이기</label>
+    <div class="opt" style="cursor:default">카드 이미지 스타일
+      <span class="seg" id="imgStyle"><button data-v="light">밝게</button><button data-v="dark">원본(검정)</button></span>
+    </div>
+    <h4>글자 크기</h4>
+    <span class="seg" id="fsSeg"><button data-v="s">작게</button><button data-v="m">보통</button><button data-v="l">크게</button><button data-v="xl">아주 크게</button></span>
+    <h4>내 모음 백업</h4>
+    <div style="display:flex;gap:6px;flex-wrap:wrap">
+      <button class="mini" id="exportFav">백업 파일 저장</button>
+      <button class="mini" id="importFav">백업 불러오기</button>
+      <input type="file" id="importFile" accept="application/json,.json" hidden>
+    </div>
+    <p class="hint">★ 내 모음은 이 기기의 이 브라우저에만 저장됩니다. 다른 기기로 옮길 때는 백업 파일을 쓰세요.</p>
+  </section>
+
+  <main id="list"></main>
+
+  <details class="guide">
+    <summary>📌 출처 표시 안내 · 활용 가이드</summary>
+    <div class="gbody">
+      <h3>출처 배지의 의미</h3>
+      <div class="legend">
+        <div><span class="badge k-orig">원본</span><span>첨부 이미지 8장의 문구를 원문 그대로 옮겼습니다. 책 제목은 마지막 이미지 한 장에만 적혀 있었고, 그 책에 실제로 실린 문장인지나 쇼펜하우어 원전의 문장인지는 확인되지 않았습니다.</span></div>
+        <div><span class="badge k-ver">원전 근거</span><span>저작이나 기록에서 근거를 찾을 수 있는 말입니다. 한국어는 원문을 풀어 옮긴 <b>의역</b>입니다. 원문 형태와 다른 경우에는 메모에 적었습니다.</span></div>
+        <div><span class="badge k-cau">출처 미확인</span><span>널리 퍼졌지만 해당 인물이 말했다는 근거가 약하거나 없는 말입니다. 누구의 말로 알려졌는지는 ⓘ 메모에만 적었습니다.</span></div>
+        <div><span class="badge k-own">편집·재구성</span><span>원본 분위기에 맞춰 새로 다듬은 문장입니다. 특정 인물의 말이 아닙니다.</span></div>
+      </div>
+      <h3>BEST 10 기준</h3>
+      <ul><li>객관적인 순위가 아니라 <b>편집자가 고른</b> 문장입니다. 여운, 전달력, 게시물로 쓰기 좋은지를 기준으로 골랐습니다.</li></ul>
+      <h3>상황별 추천</h3>
+      <ul>
+        <li><b>학생 게시물</b>: '실패·성장', '자존감·마음'. 비교·열등감을 다룬 문장이 공감을 많이 얻습니다.</li>
+        <li><b>학부모 안내</b>: '습관·선택', '부부·가족'. '시스템' 문장은 자녀 생활 지도와 연결하기 좋습니다.</li>
+        <li><b>학생용 수정</b>: 원본의 '술'은 학생 대상이라면 '스마트폰·무의식적 습관'으로 바꾸는 편이 현실적입니다.</li>
+      </ul>
+      <h3>균형 잡힌 메시지</h3>
+      <ul>
+        <li>'지금의 너를 부숴라', '고통 없는 성장은 없다' 같은 문장은 실천할 힘을 주지만, 오래 쓰면 번아웃이나 완벽주의로 이어질 수 있습니다.</li>
+        <li>버려야 할 '자기 연민'과 필요한 '휴식·자기 돌봄'은 다릅니다. '자존감·마음', '행복·내려놓음' 문장과 함께 쓰세요.</li>
+      </ul>
+      <h3>실행 전략: 1-1-1 룰</h3>
+      <ul>
+        <li><b>멈추기</b>: '망치는 것·버려야 할 것' 중 1가지를 골라 30일 동안 멈춰 봅니다. 예: 무의식적으로 SNS 보며 비교하기</li>
+        <li><b>쌓기</b>: '쌓아야 할 것' 중 1가지를 하루 15분 습관으로 실천해 봅니다. 예: 하루 20분 걷기</li>
+        <li><b>기록하기</b>: 매주 작은 선택을 적어 자기 확신의 근거로 삼습니다.</li>
+      </ul>
+    </div>
+  </details>
+  <div class="foot">☆ 담기로 모으고, 아래 막대에서 한 번에 복사하세요 · 🖼 이미지로 밴드·카톡에 바로 올릴 수 있습니다</div>
+</div>
+
+<div class="bar" id="bar"><div class="in">
+  <div class="info">내 모음 <b id="favN">0</b>개</div>
+  <button class="ghost" id="showFav">보기</button>
+  <button class="primary" id="copyFav">모두 복사</button>
+</div></div>
+<button class="totop" id="totop" aria-label="맨 위로">↑</button>
+<div class="toast" id="toast" role="status"></div>
+<div class="modal" id="modal" role="dialog" aria-modal="true"><div class="box" id="modalBox"></div></div>
+
+<script>
+/* ───────── 데이터 ─────────
+   id는 바꾸지 마세요(★ 내 모음 저장 키). 새 문장은 배열 끝에 새 id로 추가합니다. */
+const CATS = [
+  {id:"rule",name:"인생 원칙"},{id:"orig",name:"원본 문장"},{id:"time",name:"시간·인생"},
+  {id:"grow",name:"실패·성장"},{id:"habit",name:"습관·선택"},{id:"att",name:"태도·의지"},
+  {id:"self",name:"자존감·마음"},{id:"rel",name:"관계·사람"},{id:"fam",name:"부부·가족"},
+  {id:"happy",name:"행복·내려놓음"},{id:"later",name:"인생 후반전"}
+];
+const TRUST = {orig:"원본", ver:"원전 근거", cau:"출처 미확인", own:"편집·재구성"};
+const OWN = "편집·재구성 문장";
+const UNK = "출처 미확인";
+const IMG = "원본 이미지 문구 · 출처 표기 없음";
+
+const Q = [
+/* ── v1 수록 84개 (순서 유지: 이전 버전 ★ 이전용) ── */
+{id:"r1",c:"rule",k:"orig",h:"인생에 절대 없는 것",items:["공짜","고통없는 성장","쉬운 길"]},
+{id:"r2",c:"rule",k:"orig",h:"인생을 망치는 3가지",items:["술","자만","게으름"],n:"학생 대상이라면 '술'을 '스마트폰·무의식적 습관'으로 바꾸는 것을 권합니다."},
+{id:"r3",c:"rule",k:"orig",h:"젊을 때 쌓아야 하는 것",items:["체력","실수와 실패","자기 확신과 자신감"]},
+{id:"r4",c:"rule",k:"orig",h:"반드시 버려야 할 것",items:["허세와 사치","비교, 열등감","자기 연민"],n:"'자기 연민'을 버리라는 말이 '쉬지 말라'는 뜻은 아닙니다. 건강한 휴식·자기 돌봄과는 구분하세요."},
+{id:"r5",c:"rule",k:"orig",h:"절대 잃지 말아야 할 것",items:["배움의 자세","꿈꾸는 마음","나 자신을 믿는 힘"]},
+
+{id:"o1",c:"orig",k:"orig",t:"완전히 새로운 삶을 원한다면\n당신의 오늘을 먼저 바꿔야 한다.",y:"삶은 언제나 작은 변화 하나가\n전체를 뒤흔든다.",a:IMG,cp:"원본 이미지 문구"},
+{id:"o2",c:"orig",k:"orig",t:"오늘 당신이 한 작은 선택은\n내일 당신의 습관이 되고,",y:"그 습관은 1년 후 당신의 성격이 되고,\n그 성격은 결국 당신의 운명이 된다.",a:IMG,cp:"원본 이미지 문구"},
+{id:"o3",c:"orig",k:"orig",t:"나비의 날갯짓이 태풍을 만든다,\n당신의 인생도 마찬가지다.",y:"내일이 아닌, 미래가 아닌,\n지금 태도를 바꾸는 순간\n성공은 너의 편이 된다.",a:IMG,cp:"원본 이미지 문구",n:"'나비효과'는 작은 차이가 복잡한 시스템에서 큰 결과로 이어질 수 있다는 비유입니다. 나비가 실제로 태풍을 일으킨다는 뜻은 아닙니다."},
+{id:"o4",c:"orig",k:"orig",t:"운명을 넘어서는 길은 단순하다,\n지금의 너를 부숴라.\n폐허 위에서 다시 태어나듯 살아라.",y:"그 순간, 세상이 먼저 네 이름을 부른다.",a:"이미지 표기: 책 『쇼펜하우어 인생수업: 한 번뿐인 삶 이렇게 살아라』 중에서",cp:"책 『쇼펜하우어 인생수업』 중에서(이미지 표기)",n:"이미지에 적힌 출처를 그대로 옮겼습니다. 책 본문에 실제로 실렸는지, 쇼펜하우어 원전의 문장인지는 확인되지 않았습니다."},
+
+{id:"t1",c:"time",k:"ver",t:"우리는 짧은 삶을 받은 것이 아니라,",y:"그 시간을 대부분 낭비할 뿐이다.",a:"세네카",s:"『인생의 짧음에 관하여』"},
+{id:"t2",c:"time",k:"ver",t:"인간은 생각하는 갈대다.",y:"우주가 인간을 짓눌러도, 인간은 자신이 죽는다는 것을 알기에 우주보다 고귀하다.",a:"블레즈 파스칼",s:"『팡세』"},
+{id:"t3",c:"time",k:"cau",t:"20년 후에는 한 일보다\n하지 않은 일을 더 후회할 것이다.",y:"그러니 밧줄을 풀고 항구를 떠나라.",a:UNK,known:"마크 트웨인",n:"흔히 마크 트웨인의 말로 알려졌지만 트웨인의 저작에서는 확인되지 않습니다. 확인된 가장 이른 기록은 H. 잭슨 브라운 2세의 『P.S. I Love You』(1990)로, 저자 어머니의 격언으로 실려 있습니다."},
+{id:"t4",c:"time",k:"own",b:1,t:"인생에서 가장 비싼 것은 돈으로 산 물건이 아니라,",y:"다시는 돌아오지 않을 시간이다.",a:OWN},
+{id:"t5",c:"time",k:"own",b:1,t:"어제는 고칠 수 없지만,",y:"어제와 똑같은 오늘은 피할 수 있다.",a:OWN},
+{id:"t6",c:"time",k:"own",t:"인생은 길어서 행복한 것이 아니라,",y:"행복한 순간이 있어서 길게 기억된다.",a:OWN},
+{id:"t7",c:"time",k:"own",t:"세월은 누구에게나 공평하게 흐르지만,",y:"그 시간을 어떻게 살았는지는 공평하지 않다.",a:OWN},
+{id:"t8",c:"time",k:"own",t:"젊음은 나이가 아니라",y:"아직도 새로운 것을 시작할 수 있다고 믿는 마음이다.",a:OWN},
+{id:"t9",c:"time",k:"own",t:"마지막 날 후회할 일이라면,",y:"오늘부터 조금씩 다르게 살아라.",a:OWN},
+
+{id:"g1",c:"grow",k:"ver",t:"나를 죽이지 못하는 것은",y:"나를 더 강하게 만든다.",a:"프리드리히 니체",s:"『우상의 황혼』"},
+{id:"g2",c:"grow",k:"ver",t:"길을 가로막는 장애물이",y:"오히려 길이 된다.",a:"마르쿠스 아우렐리우스",s:"『명상록』 5권 20절"},
+{id:"g3",c:"grow",k:"ver",t:"새는 알에서 나오려고 투쟁한다. 알은 세계다.",y:"태어나려는 자는 하나의 세계를 깨뜨려야 한다.",a:"헤르만 헤세",s:"『데미안』",n:"원본의 '지금의 너를 부숴라'와 짝을 이루는 문장입니다."},
+{id:"g4",c:"grow",k:"ver",t:"반드시 죽고자 하면 살고,\n살고자 하면 죽는다.",y:"必死則生 必生則死",a:"이순신",s:"『난중일기』 정유년(1597) 9월 15일",n:"명량해전 전날 장수들에게 한 말입니다. 『오자병법』 치병편의 '必死則生 幸生則死'에서 '幸(요행히)'을 '必(반드시)'로 바꿔 인용한 것으로, 이순신이 새로 지은 말은 아닙니다."},
+{id:"g5",c:"grow",k:"ver",t:"재능 있는 사람은 아무도 맞히지 못하는 과녁을 맞히고,",y:"천재는 아무도 보지 못하는 과녁을 맞힌다.",a:"아르투어 쇼펜하우어",s:"『의지와 표상으로서의 세계』 2권 31장(천재에 관하여)",n:"원전에 있는 비유를 바탕으로 합니다. 다만 지금 널리 쓰이는 짧은 한 줄 문장은 후대에 줄여서 재구성한 것입니다."},
+{id:"g6",c:"grow",k:"cau",t:"나는 실패한 적이 없다.",y:"작동하지 않는 방법을 만 가지 찾았을 뿐이다.",a:UNK,known:"토머스 에디슨",n:"흔히 에디슨의 말로 알려져 있습니다. 동료 월터 맬러리의 회고에 '안 되는 방법을 수천 가지 알게 됐다'는 취지의 말이 전해지지만, 지금의 문장은 후대에 다듬어진 것입니다."},
+{id:"g7",c:"grow",k:"cau",t:"성공이란 실패를 거듭해도",y:"열정을 잃지 않는 능력이다.",a:UNK,known:"윈스턴 처칠",n:"흔히 처칠의 말로 알려졌지만, 처칠의 연설이나 글에서는 확인되지 않습니다."},
+{id:"g8",c:"grow",k:"cau",t:"비관론자는 모든 기회에서 어려움을 보고,",y:"낙관론자는 모든 어려움에서 기회를 본다.",a:UNK,known:"윈스턴 처칠",n:"흔히 처칠의 말로 알려졌지만, 처칠이 말했다는 근거가 없습니다."},
+{id:"g9",c:"grow",k:"cau",t:"나는 천천히 걷는 사람이다.",y:"그러나 뒤로는 절대 걷지 않는다.",a:UNK,known:"에이브러햄 링컨",n:"흔히 링컨의 말로 알려졌지만, 링컨의 기록에서는 확인되지 않습니다."},
+{id:"g10",c:"grow",k:"ver",t:"시작이 반이다.",a:"한국 속담",s:"서양에도 '잘 시작하면 절반은 이룬 것'이라는 고대 격언이 있음",n:"괴테의 말로 소개되기도 하지만 근거가 없습니다. 서양 격언은 아리스토텔레스 『정치학』과 호라티우스의 편지에 나옵니다."},
+{id:"g11",c:"grow",k:"own",t:"실패한 사람과 실패하지 않은 사람의 차이는",y:"도전의 횟수일 때가 많다.",a:OWN},
+{id:"g12",c:"grow",k:"own",t:"넘어진 것이 부끄러운 게 아니라,",y:"다시 일어설 수 있는데도 포기하는 것이 아쉽다.",a:OWN},
+{id:"g13",c:"grow",k:"own",t:"상처가 모두 훈장이 되는 것은 아니다.",y:"그러나 상처에서 배운 것은 자산이 된다.",a:OWN},
+{id:"g14",c:"grow",k:"own",b:1,t:"인생의 가장 큰 실수는",y:"실수하지 않으려고 아무것도 하지 않는 것이다.",a:OWN},
+{id:"g15",c:"grow",k:"own",t:"실패는 당신이 부족하다는 증거가 아니라,",y:"지금의 방법을 바꿔야 한다는 신호일 수 있다.",a:OWN},
+{id:"g16",c:"grow",k:"own",t:"강한 사람은 울지 않는 사람이 아니라,",y:"울고 난 뒤에도 자기 삶을 살아가는 사람이다.",a:OWN},
+{id:"g17",c:"grow",k:"own",t:"남보다 빨리 가는 것보다",y:"어제의 나보다 조금 더 나아가는 것이 중요하다.",a:OWN},
+{id:"g18",c:"grow",k:"own",t:"끝까지 버티는 것만이 용기는 아니다.",y:"때로는 방향을 바꾸는 것이 더 큰 용기다.",a:OWN},
+
+{id:"h1",c:"habit",k:"ver",t:"우리가 반복하는 행동이 곧 우리다.",y:"그러므로 탁월함은 행동이 아니라 습관이다.",a:"윌 듀런트",s:"『철학 이야기』(1926)",n:"흔히 아리스토텔레스의 말로 알려졌지만, 실제로는 듀런트가 아리스토텔레스의 사상을 요약한 문장입니다."},
+{id:"h2",c:"habit",k:"ver",t:"우리는 목표 수준으로 올라가는 것이 아니라,",y:"시스템 수준으로 떨어진다.",a:"제임스 클리어",s:"『아주 작은 습관의 힘』"},
+{id:"h3",c:"habit",k:"ver",t:"천 리 길도 한 걸음부터 시작된다.",y:"千里之行 始於足下",a:"노자",s:"『도덕경』 64장"},
+{id:"h4",c:"habit",k:"ver",t:"하루라도 책을 읽지 않으면",y:"입안에 가시가 돋는다.",a:"안중근",s:"유묵 '一日不讀書 口中生荊棘'"},
+{id:"h5",c:"habit",k:"cau",t:"생각이 행동이 되고, 행동이 습관이 되며,",y:"습관은 인격이 되고, 인격은 운명이 된다.",a:UNK,known:"새뮤얼 스마일스 등",n:"새뮤얼 스마일스를 비롯해 여러 인물의 말로 알려져 있지만, 원작자가 분명하지 않은 격언입니다. 원본의 '선택→습관→성격→운명'과 같은 구조입니다."},
+{id:"h6",c:"habit",k:"cau",t:"천천히 가는 것은 괜찮다.",y:"멈추지만 않으면 된다.",a:UNK,known:"공자",n:"흔히 공자의 말로 알려졌지만, 『논어』에서는 확인되지 않습니다."},
+{id:"h7",c:"habit",k:"cau",t:"변화의 대가는 고통이다.",y:"그러나 변화를 외면한 대가는 더 크다.",a:UNK,known:"소크라테스",n:"소크라테스의 말로 소개되기도 하지만 근거가 없습니다."},
+{id:"h8",c:"habit",k:"cau",t:"가장 빛나는 날은 아직 살지 않았다.",y:"무언가를 시작하기 가장 좋은 때는 바로 지금이다.",a:UNK,known:"나짐 히크메트",n:"앞 문장은 나짐 히크메트의 시 「가장 아름다운 바다」의 구절을 바꾼 것입니다. 이 시는 국내에서 '진정한 여행'이라는 번역 제목으로 알려졌습니다. 뒤 문장은 후대에 덧붙인 것입니다."},
+{id:"h9",c:"habit",k:"own",t:"당신의 미래는 오늘 세운 거창한 계획보다",y:"오늘 반복한 작은 행동에서 만들어진다.",a:OWN},
+{id:"h10",c:"habit",k:"own",t:"좋은 선택이 인생을 바꾸기도 하지만,",y:"나쁜 선택을 멈추는 것만으로도 인생은 달라진다.",a:OWN},
+{id:"h11",c:"habit",k:"own",t:"꿈이 크다고 인생이 달라지는 것은 아니다.",y:"그 꿈을 위해 오늘 무엇을 했는지가 중요하다.",a:OWN},
+{id:"h12",c:"habit",k:"own",t:"기회는 기다리는 사람에게만 오는 것이 아니라,",y:"준비한 사람에게 더 잘 보인다.",a:OWN},
+{id:"h13",c:"habit",k:"own",t:"꾸준함은 특별한 재능이 없어도",y:"키울 수 있는 강력한 능력이다.",a:OWN},
+{id:"h14",c:"habit",k:"own",b:1,t:"완벽한 때를 기다리면 시작할 수 없다.",y:"시작한 뒤에 조금씩 완성해 가라.",a:OWN},
+{id:"h15",c:"habit",k:"own",b:1,t:"열심히 사는 것과 잘 사는 것은 다르다.",y:"가끔은 내가 어디로 가는지 확인하라.",a:OWN},
+{id:"h16",c:"habit",k:"own",t:"인생을 바꾸는 결심은 하루에 끝나지만,",y:"인생을 바꾸는 행동은 매일 필요하다.",a:OWN},
+
+{id:"a1",c:"att",k:"ver",t:"모든 것을 빼앗을 수 있어도,",y:"어떤 상황에서 어떤 태도를 택할지 고르는 마지막 자유만은 빼앗을 수 없다.",a:"빅터 프랭클",s:"『죽음의 수용소에서』"},
+{id:"a2",c:"att",k:"ver",t:"파도가 끊임없이 부딪쳐도",y:"굳건히 서 있는 바위처럼 살아라.",a:"마르쿠스 아우렐리우스",s:"『명상록』 4권 49절"},
+{id:"a3",c:"att",k:"ver",t:"남을 이기는 자는 힘이 있고,",y:"자신을 이기는 자는 강하다.",a:"노자",s:"『도덕경』 33장 '勝人者有力 自勝者強'",n:"원본의 '술·자만·게으름'을 이기는 힘과 연결됩니다."},
+{id:"a4",c:"att",k:"ver",t:"아는 것은 좋아하는 것만 못하고,",y:"좋아하는 것은 즐기는 것만 못하다.",a:"공자",s:"『논어』 옹야편"},
+{id:"a5",c:"att",k:"ver",t:"모두가 세상을 바꾸려 하지만,",y:"자기 자신을 바꾸려는 사람은 없다.",a:"레프 톨스토이",s:"1900년 에세이 구절의 의역"},
+{id:"a6",c:"att",k:"ver",t:"살아 있는 한 희망은 있다.",a:"키케로",s:"『아티쿠스에게 보낸 편지』",n:"키케로가 '환자는 숨이 붙어 있는 한 희망이 있다고들 한다'며 당시 흔히 하던 말을 인용한 것입니다. 다른 글에 붙어 있던 뒷문장은 후대에 덧붙인 것이라 뺐습니다."},
+{id:"a7",c:"att",k:"cau",t:"세상을 바꾸고 싶다면",y:"먼저 당신 자신이 그 변화가 되어라.",a:UNK,known:"마하트마 간디",n:"흔히 간디의 말로 알려졌지만, 간디의 실제 글을 짧게 요약한 문장입니다. 간디가 이 문장 그대로 말한 기록은 없습니다."},
+{id:"a8",c:"att",k:"cau",t:"세상에서 가장 슬픈 사람은 눈이 없는 사람이 아니라,",y:"비전이 없는 사람이다.",a:UNK,known:"헬렌 켈러",n:"흔히 헬렌 켈러의 말로 알려졌지만, 원문 출처가 확인되지 않습니다."},
+{id:"a9",c:"att",k:"cau",t:"상황은 당신을 통제할 수 없다.",y:"내면의 주인은 언제나 당신이다.",a:UNK,known:"롱펠로",n:"롱펠로의 말로 소개되지만, 그의 작품에서는 확인되지 않습니다."},
+
+{id:"s1",c:"self",k:"ver",t:"사람을 괴롭히는 것은 사건이 아니라,",y:"그 사건에 대한 생각이다.",a:"에픽테토스",s:"『엥케이리디온』 5장"},
+{id:"s2",c:"self",k:"cau",t:"사람은 남과 같아지기 위해",y:"자기 자신의 4분의 3을 잃는다.",a:UNK,known:"아르투어 쇼펜하우어",n:"쇼펜하우어의 말로 널리 인용되지만, 원전에서 정확한 위치를 확인하지 못했습니다."},
+{id:"s3",c:"self",k:"cau",t:"남과 비교하지 마라. 어제의 나와 비교하라.",y:"진짜 경쟁자는 어제의 나 자신이다.",a:UNK,n:"작자 미상의 격언입니다. 다른 글에는 '세종(정조)'의 말로 붙어 있었지만 근거가 없습니다."},
+{id:"s4",c:"self",k:"own",b:1,t:"남의 인생과 비교하는 순간,",y:"내 인생의 소중한 장면들을 놓치기 시작한다.",a:OWN},
+{id:"s5",c:"self",k:"own",b:1,t:"자존감은 내가 최고라고 믿는 것이 아니라,",y:"최고가 아니어도 나를 존중하는 것이다.",a:OWN},
+{id:"s6",c:"self",k:"own",t:"모든 것을 잘할 필요는 없다.",y:"다만 나에게 중요한 것을 놓치지 않으면 된다.",a:OWN},
+{id:"s7",c:"self",k:"own",t:"내 마음의 평화를",y:"남의 평가에 맡기지 마라.",a:OWN},
+{id:"s8",c:"self",k:"own",b:1,t:"가장 오랫동안 함께 살아야 할 사람은 바로 나 자신이다.",y:"그러니 나를 함부로 대하지 마라.",a:OWN},
+{id:"s9",c:"self",k:"own",t:"행복한 사람은 걱정이 없는 사람이 아니라,",y:"걱정 속에서도 누릴 것을 발견하는 사람이다.",a:OWN},
+{id:"s10",c:"self",k:"own",t:"남에게 인정받는 삶보다",y:"스스로 납득할 수 있는 삶을 살아라.",a:OWN},
+{id:"s11",c:"self",k:"own",t:"인생이 힘든 날에는 더 강해지려고만 하지 말고,",y:"잠시 쉬어 갈 줄도 알아야 한다.",a:OWN,n:"원본의 '고통 없는 성장은 없다'와 함께 쓰면 메시지의 균형이 맞습니다."},
+
+{id:"l1",c:"rel",k:"own",t:"사람의 진짜 모습은",y:"자신에게 도움이 되지 않는 사람을 대할 때 드러난다.",a:OWN},
+{id:"l2",c:"rel",k:"own",t:"모든 사람에게 좋은 사람이 되려다 보면,",y:"정작 자신에게는 나쁜 사람이 될 수 있다.",a:OWN},
+{id:"l3",c:"rel",k:"own",b:1,t:"좋은 관계는 서로를 붙잡는 관계가 아니라,",y:"서로가 자기답게 살 수 있도록 돕는 관계다.",a:OWN},
+{id:"l4",c:"rel",k:"own",t:"말 한마디로 사람을 얻기도 하고,",y:"오래 쌓은 신뢰를 잃기도 한다.",a:OWN},
+{id:"l5",c:"rel",k:"own",t:"나를 좋아하는 사람이 많아지는 것보다,",y:"나를 믿을 수 있는 사람이 남는 것이 중요하다.",a:OWN},
+{id:"l6",c:"rel",k:"own",t:"가까운 사람일수록",y:"더 많이 이해하고, 함부로 대하지 말아야 한다.",a:OWN},
+{id:"l7",c:"rel",k:"own",t:"상대방을 바꾸려고 애쓰기보다,",y:"그 사람을 어떻게 대할지 결정하는 것이 먼저다.",a:OWN},
+{id:"l8",c:"rel",k:"own",t:"나이가 들수록 곁에 남는 사람의 숫자보다",y:"함께 있을 때 편안한지가 중요해진다.",a:OWN},
+
+{id:"L1",c:"later",k:"own",t:"나이가 들수록 중요한 것은 무엇을 더 가질지가 아니라",y:"무엇을 남길지다.",a:OWN},
+{id:"L2",c:"later",k:"own",b:1,t:"인생의 후반전은 전반전에 얼마나 이겼는지가 아니라,",y:"이제 무엇을 위해 뛰는지에 달려 있다.",a:OWN},
+{id:"L3",c:"later",k:"own",t:"젊을 때는 무엇을 이루었는지가 중요했지만,",y:"나이가 들수록 무엇을 누리고 누구와 함께하는지가 중요해진다.",a:OWN},
+{id:"L4",c:"later",k:"own",t:"남은 인생은 더 많은 것을 증명하는 시간이 아니라,",y:"정말 소중한 것을 선택하는 시간이었으면 좋겠다.",a:OWN},
+
+/* ── v2 추가 ── */
+{id:"l9",c:"rel",k:"ver",t:"내가 원하지 않는 것을",y:"남에게 하지 마라.",a:"공자",s:"『논어』 위령공편 '己所不欲 勿施於人'"},
+{id:"l10",c:"rel",k:"ver",t:"세 사람이 길을 가면",y:"그 가운데 반드시 나의 스승이 있다.",a:"공자",s:"『논어』 술이편 '三人行 必有我師焉'"},
+{id:"g19",c:"grow",k:"ver",t:"다시 시도하라. 다시 실패하라.",y:"더 잘 실패하라.",a:"사뮈엘 베케트",s:"『최악을 향하여』(1983)"},
+{id:"t10",c:"time",k:"ver",t:"오늘을 붙잡아라.",y:"내일은 최소한만 믿어라.",a:"호라티우스",s:"『송가』 1권 11편 'Carpe diem'"},
+{id:"a10",c:"att",k:"ver",t:"배우고 때때로 익히면",y:"또한 기쁘지 아니한가.",a:"공자",s:"『논어』 학이편 '學而時習之 不亦說乎'",n:"원본의 '절대 잃지 말아야 할 것: 배움의 자세'와 짝을 이룹니다."},
+
+{id:"f1",c:"fam",k:"ver",t:"사랑한다는 것은 서로 마주 보는 것이 아니라,",y:"함께 같은 방향을 바라보는 것이다.",a:"앙투안 드 생텍쥐페리",s:"『인간의 대지』(1939)"},
+{id:"f2",c:"fam",k:"ver",t:"행복한 가정은 모두 비슷하지만,",y:"불행한 가정은 저마다의 이유로 불행하다.",a:"레프 톨스토이",s:"『안나 카레니나』 첫 문장"},
+{id:"f3",c:"fam",k:"own",t:"오래 함께한 사람에게 가장 필요한 말은 거창한 고백이 아니라",y:"'고마워' 한마디다.",a:OWN},
+{id:"f4",c:"fam",k:"own",t:"부부는 같은 곳을 보며 걷되,",y:"서로의 걸음 속도를 기다려 주는 사이다.",a:OWN},
+{id:"f5",c:"fam",k:"own",t:"자녀에게 물려줄 가장 좋은 유산은 재산이 아니라",y:"부모가 살아온 태도다.",a:OWN},
+{id:"f6",c:"fam",k:"own",t:"가족은 가장 가까워서 가장 쉽게 상처 주는 사이다.",y:"그래서 가장 먼저 다정해야 한다.",a:OWN},
+{id:"f7",c:"fam",k:"own",t:"부모는 자녀의 길을 대신 걸어 줄 수 없다.",y:"다만 넘어졌을 때 돌아올 자리가 되어 줄 수 있다.",a:OWN},
+
+{id:"p1",c:"happy",k:"ver",t:"가난한 사람은 적게 가진 사람이 아니라,",y:"더 많이 바라는 사람이다.",a:"세네카",s:"『루킬리우스에게 보낸 편지』 2"},
+{id:"p2",c:"happy",k:"ver",t:"만족할 줄 알면 욕되지 않고,",y:"멈출 줄 알면 위태롭지 않다.",a:"노자",s:"『도덕경』 44장 '知足不辱 知止不殆'"},
+{id:"p3",c:"happy",k:"ver",t:"실수는 인간의 일이고,",y:"용서는 신의 일이다.",a:"알렉산더 포프",s:"『비평론』(1711)"},
+{id:"p4",c:"happy",k:"ver",t:"지금 이 순간 삶을 떠날 수도 있는 사람처럼",y:"행동하고, 말하고, 생각하라.",a:"마르쿠스 아우렐리우스",s:"『명상록』 2권 11절"},
+{id:"p5",c:"happy",k:"ver",t:"철학을 한다는 것은",y:"죽는 법을 배우는 것이다.",a:"미셸 드 몽테뉴",s:"『수상록』 1권 20장",n:"몽테뉴가 키케로의 말을 빌려 붙인 장의 제목입니다. 죽음을 생각하며 오늘을 귀하게 살자는 뜻입니다."},
+{id:"p6",c:"happy",k:"own",t:"행복은 더 많이 갖는 데서가 아니라,",y:"이미 가진 것을 알아보는 데서 시작된다.",a:OWN},
+{id:"p7",c:"happy",k:"own",t:"용서는 상대를 위한 선물이기 전에,",y:"나를 과거에서 풀어 주는 열쇠다.",a:OWN},
+{id:"p8",c:"happy",k:"own",t:"놓아야 할 것을 붙잡고 있으면,",y:"잡아야 할 것을 잡을 손이 없다.",a:OWN},
+{id:"p9",c:"happy",k:"own",t:"평범한 하루가 얼마나 귀한지는",y:"그 하루를 잃어 본 뒤에야 안다.",a:OWN},
+
+{id:"L5",c:"later",k:"ver",t:"청춘이란 인생의 어느 기간이 아니라",y:"마음가짐이다.",a:"새뮤얼 울만",s:"시 「청춘(Youth)」"},
+{id:"L6",c:"later",k:"ver",t:"일흔에는 마음이 하고자 하는 대로 따라도",y:"법도를 넘지 않았다.",a:"공자",s:"『논어』 위정편 '七十而從心所欲不踰矩'"},
+{id:"L7",c:"later",k:"own",t:"은퇴는 일에서 물러나는 것이 아니라,",y:"내 시간의 주인이 되는 것이다.",a:OWN},
+{id:"L8",c:"later",k:"own",t:"나이 들어 가장 큰 재산은 통장이 아니라,",y:"함께 웃을 사람과 매일 걸을 수 있는 두 다리다.",a:OWN},
+{id:"L9",c:"later",k:"own",t:"인생의 오후에는 더 빨리 가는 법보다",y:"더 깊이 보는 법을 배운다.",a:OWN},
+{id:"L10",c:"later",k:"own",t:"배움을 멈추는 날,",y:"사람은 비로소 늙기 시작한다.",a:OWN},
+{id:"L11",c:"later",k:"own",t:"남은 날 가운데",y:"가장 젊은 날은 오늘이다.",a:OWN},
+{id:"L12",c:"later",k:"own",t:"후반전의 품격은 무엇을 더 얻느냐가 아니라",y:"무엇을 기꺼이 내려놓느냐에서 나온다.",a:OWN}
+];
+const LEGACY = Q.slice(0,84).map(q=>q.id); // v1의 q0~q83 → 고정 id
+
+/* ───────── 상태 ───────── */
+const $ = s=>document.querySelector(s);
+const store = {
+  get(k,d){ try{ const v=localStorage.getItem(k); return v===null?d:v; }catch(e){ return d; } },
+  set(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+};
+const st = {cat:"all", trust:"all", q:"", fav:false};
+let favs = new Set();
+(function loadFavs(){
+  try{ JSON.parse(store.get("quote-favs-v2","[]")).forEach(id=>favs.add(id)); }catch(e){}
+  try{ // v1 데이터 이전
+    const old = JSON.parse(store.get("quote-favs","null"));
+    if(Array.isArray(old)){ old.forEach(x=>{ const m=/^q(\d+)$/.exec(x); if(m&&LEGACY[+m[1]]) favs.add(LEGACY[+m[1]]); });
+      try{ localStorage.removeItem("quote-favs"); }catch(e){} saveFav(); }
+  }catch(e){}
+})();
+function saveFav(){ store.set("quote-favs-v2", JSON.stringify([...favs])); }
+let imgStyle = store.get("quote-img","light");
+
+/* ───────── 유틸 ───────── */
+const esc = s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function hl(s){ let h=esc(s); if(st.q){ const k=esc(st.q).replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+  h=h.replace(new RegExp("("+k+")","gi"),"<mark>$1</mark>"); } return h.replace(/\n/g,"<br>"); }
+const hay = q=>[q.h,q.t,q.y,(q.items||[]).join(" "),q.a,q.s,q.known].filter(Boolean).join(" ").toLowerCase();
+const catName = id=>CATS.find(c=>c.id===id).name;
+function credit(q){
+  if(q.items) return "";
+  if(q.k==="own") return OWN;
+  if(q.k==="cau") return UNK;
+  if(q.k==="orig") return q.cp||"";
+  return q.a+(q.s?", "+q.s:"");
+}
+function textOf(q){
+  let s = q.items ? "<"+q.h+">\n"+q.items.map((x,i)=>(i+1)+"."+x).join("\n") : [q.t,q.y].filter(Boolean).join("\n");
+  const c = credit(q);
+  if($("#withAuthor").checked && c) s += "\n— "+c;
+  return s;
+}
+function joinTexts(list){
+  const num=$("#numbered").checked;
+  return list.map((q,i)=>(num?"["+(i+1)+"] ":"")+textOf(q)).join("\n\n");
+}
+
+/* ───────── 복사 · 공유 ───────── */
+async function copyText(text){
+  if(!text) return false;
+  try{ if(navigator.clipboard&&window.isSecureContext){ await navigator.clipboard.writeText(text); return true; } }catch(e){}
+  let ok=false;
+  try{ const ta=document.createElement("textarea"); ta.value=text; ta.setAttribute("readonly","");
+    ta.style.cssText="position:fixed;top:0;left:0;opacity:0"; document.body.appendChild(ta);
+    ta.select(); ta.setSelectionRange(0,text.length); ok=document.execCommand("copy"); ta.remove(); }catch(e){ ok=false; }
+  if(!ok) manualCopy(text);
+  return ok;
+}
+function manualCopy(text){
+  openModal(`<h3>직접 복사해 주세요</h3><p>이 브라우저에서는 자동 복사가 막혀 있습니다. 아래 글을 길게 눌러 전체 선택 후 복사하세요.</p>
+    <textarea id="mc" readonly>${esc(text)}</textarea><div class="row"><button data-close>닫기</button></div>`);
+  const t=$("#mc"); t.focus(); t.select();
+}
+function shareUrl(id){ return /^https?:/.test(location.protocol) ? location.origin+location.pathname+"#"+id : ""; }
+async function share(q){
+  const text=textOf(q), url=shareUrl(q.id);
+  if(navigator.share){ try{ await navigator.share(url?{text,url}:{text}); return; }catch(e){ if(e.name==="AbortError") return; } }
+  const ok=await copyText(text+(url?"\n"+url:"")); if(ok) toast("공유 기능이 없어 복사했습니다");
+}
+
+/* ───────── 카드 이미지 ───────── */
+function wrap(ctx,text,maxW){
+  const out=[];
+  String(text).split("\n").forEach(par=>{
+    let line="";
+    par.split(" ").forEach(w=>{
+      const test=line?line+" "+w:w;
+      if(ctx.measureText(test).width<=maxW){ line=test; return; }
+      if(line) out.push(line);
+      if(ctx.measureText(w).width>maxW){ let p=""; for(const ch of w){ if(ctx.measureText(p+ch).width>maxW){ out.push(p); p=ch; } else p+=ch; } line=p; }
+      else line=w;
+    });
+    out.push(line);
+  });
+  return out;
+}
+async function makeImage(q){
+  try{ await Promise.all([document.fonts.load('700 60px "Gowun Batang"'),document.fonts.load('400 60px "Gowun Batang"')]); }catch(e){}
+  const W=1080,H=1080,P=110, dark=imgStyle==="dark";
+  const C={bg:dark?"#0d0d0e":"#fbf8f1",text:dark?"#f3f1ea":"#23211c",y:dark?"#f5d547":"#23211c",hl:dark?null:"#ffe27a",
+           sub:dark?"#a29e94":"#6a6558",acc:dark?"#f5d547":"#1f6b6e",frame:dark?"#2c2c31":"#e6e1d4"};
+  const cv=document.createElement("canvas"); cv.width=W; cv.height=H; const x=cv.getContext("2d");
+  x.fillStyle=C.bg; x.fillRect(0,0,W,H);
+  x.strokeStyle=C.frame; x.lineWidth=3; x.strokeRect(40,40,W-80,H-80);
+  const cr=$("#withAuthor").checked?credit(q):"";
+  const maxW=W-P*2, maxH=H-P*2-(cr?110:40);
+  let fs=66, blocks;
+  for(;fs>=30;fs-=2){
+    x.font=`700 ${fs}px "Gowun Batang", serif`;
+    blocks=[];
+    if(q.items){ blocks.push({lines:wrap(x,"<"+q.h+">",maxW),color:C.acc,bold:true});
+      blocks.push({lines:q.items.flatMap((it,i)=>wrap(x,(i+1)+"."+it,maxW)),color:C.text,gapTop:.5}); }
+    else{ blocks.push({lines:wrap(x,q.t,maxW),color:C.text}); if(q.y) blocks.push({lines:wrap(x,q.y,maxW),color:C.y,hl:true,gapTop:.6}); }
+    const lh=fs*1.6, tot=blocks.reduce((a,b)=>a+b.lines.length*lh+(b.gapTop||0)*lh,0);
+    if(tot<=maxH) break;
+  }
+  const lh=fs*1.6, tot=blocks.reduce((a,b)=>a+b.lines.length*lh+(b.gapTop||0)*lh,0);
+  let yy=(H-(cr?70:0)-tot)/2+lh*.72;
+  x.textAlign="center";
+  blocks.forEach(b=>{
+    yy+=(b.gapTop||0)*lh;
+    x.font=`700 ${fs}px "Gowun Batang", serif`;
+    b.lines.forEach(l=>{
+      if(b.hl&&C.hl&&l){ const w=x.measureText(l).width; x.fillStyle=C.hl; x.fillRect(W/2-w/2-6,yy-fs*.28,w+12,fs*.42); }
+      x.fillStyle=b.color; x.fillText(l,W/2,yy); yy+=lh;
+    });
+  });
+  if(cr){ x.font=`400 ${Math.max(26,Math.min(32,fs*.55))}px "Gowun Batang", serif`; x.fillStyle=C.sub;
+    const lines=wrap(x,"— "+cr,maxW); let fy=H-P-(lines.length-1)*40+10; lines.forEach(l=>{ x.fillText(l,W/2,fy); fy+=40; }); }
+  return cv;
+}
+async function saveImage(q){
+  toast("이미지를 만드는 중…");
+  const cv=await makeImage(q);
+  const name="명언_"+q.id+".png";
+  cv.toBlob(async blob=>{
+    if(!blob){ toast("이미지를 만들지 못했습니다"); return; }
+    const file=new File([blob],name,{type:"image/png"});
+    if(navigator.canShare&&navigator.canShare({files:[file]})){
+      try{ await navigator.share({files:[file]}); return; }catch(e){ if(e.name==="AbortError") return; }
+    }
+    const url=URL.createObjectURL(blob);
+    openModal(`<h3>카드 이미지</h3><p>저장되지 않으면 이미지를 길게 눌러 '이미지 저장'을 선택하세요.</p>
+      <img src="${url}" alt="명언 카드 이미지"><div class="row"><button data-close>닫기</button><a class="primary" href="${url}" download="${name}" style="padding:9px 14px;border-radius:10px;text-decoration:none;background:var(--accent);color:var(--accent-ink);font-weight:700">내려받기</a></div>`);
+  },"image/png");
+}
+
+/* ───────── 모달 · 토스트 ───────── */
+function openModal(html){ $("#modalBox").innerHTML=html; $("#modal").classList.add("show"); }
+function closeModal(){ $("#modal").classList.remove("show"); $("#modalBox").innerHTML=""; }
+$("#modal").addEventListener("click",e=>{ if(e.target.id==="modal"||e.target.closest("[data-close]")) closeModal(); });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") closeModal(); });
+let tt; function toast(m){ const t=$("#toast"); t.textContent=m; t.classList.add("show"); clearTimeout(tt); tt=setTimeout(()=>t.classList.remove("show"),1800); }
+
+/* ───────── 렌더링 ───────── */
+function quoteBody(q){
+  return q.items
+    ? `<p class="listh">&lt;${hl(q.h)}&gt;</p><ol class="items">${q.items.map(x=>`<li>${hl(x)}</li>`).join("")}</ol>`
+    : `<p class="q">${hl(q.t)}${q.y?`<span class="y"><span>${hl(q.y)}</span></span>`:""}</p>`;
+}
+function actions(q){
+  const on=favs.has(q.id);
+  return `<button class="act ${on?"on":""}" data-act="fav" data-id="${q.id}" aria-pressed="${on}" aria-label="내 모음에 담기">${on?"★ 담음":"☆ 담기"}</button>
+    <button class="act" data-act="share" data-id="${q.id}" aria-label="공유">↗ 공유</button>
+    <button class="act" data-act="img" data-id="${q.id}" aria-label="카드 이미지 저장">🖼 이미지</button>
+    <button class="act" data-act="copy" data-id="${q.id}" aria-label="복사">⧉ 복사</button>`;
+}
+function card(q){
+  const memoTitle = q.k==="cau"&&q.known ? `흔히 ${esc(q.known)}의 말로 알려짐` : (q.k==="orig"&&q.c==="orig" ? "출처 메모" : "메모");
+  return `<article class="card" id="${q.id}">
+    <div class="meta"><span class="tag">${catName(q.c)}</span><span class="badge k-${q.k}">${TRUST[q.k]}</span>${q.b?'<span class="best">BEST</span>':""}</div>
+    ${quoteBody(q)}
+    ${q.a?`<div class="author">— <b>${hl(q.a)}</b>${q.s?` · ${hl(q.s)}`:""}</div>`:""}
+    ${q.n?`<details class="memo"><summary>${memoTitle}</summary>${hl(q.n)}</details>`:""}
+    <div class="actions">${actions(q)}</div></article>`;
+}
+function filtered(){
+  const k=st.q.toLowerCase();
+  return Q.filter(q=>(st.cat==="all"||(st.cat==="best"?q.b:q.c===st.cat))
+    &&(st.trust==="all"||q.k===st.trust)&&(!st.fav||favs.has(q.id))&&(!k||hay(q).includes(k)));
+}
+function buildChips(){
+  const cats=[{id:"all",name:"전체",n:Q.length},{id:"best",name:"⭐ 편집자 BEST",n:Q.filter(q=>q.b).length},
+    ...CATS.map(c=>({...c,n:Q.filter(q=>q.c===c.id).length}))];
+  $("#cats").innerHTML=cats.map(c=>`<button class="chip" data-cat="${c.id}" aria-pressed="false">${c.name}<span class="n">${c.n}</span></button>`).join("");
+  $("#trusts").innerHTML=[["all","전체",Q.length],...Object.entries(TRUST).map(([k,n])=>[k,n,Q.filter(q=>q.k===k).length])]
+    .map(([id,n,c])=>`<button class="chip" data-trust="${id}" aria-pressed="false">${n}<span class="n">${c}</span></button>`).join("")
+    +`<button class="chip" data-favonly="1" aria-pressed="false">★ 내 모음</button>`;
+}
+function syncChips(){
+  document.querySelectorAll("[data-cat]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.cat===st.cat));
+  document.querySelectorAll("[data-trust]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.trust===st.trust));
+  const f=document.querySelector("[data-favonly]"); if(f) f.setAttribute("aria-pressed",st.fav);
+}
+function renderStatus(n){
+  const parts=[];
+  if(st.cat!=="all") parts.push(st.cat==="best"?"편집자 BEST":catName(st.cat));
+  if(st.trust!=="all") parts.push(TRUST[st.trust]);
+  if(st.fav) parts.push("★ 내 모음");
+  if(st.q) parts.push("'"+st.q+"'");
+  $("#statusTxt").innerHTML=`결과 <b>${n}</b>개`+(parts.length?" · "+esc(parts.join(" · ")):"");
+  $("#reset").hidden=!parts.length;
+  $("#copyVisible").disabled=!n;
+}
+function render(animate){
+  syncChips();
+  const list=filtered(), box=$("#list");
+  box.classList.toggle("anim",!!animate);
+  renderStatus(list.length);
+  if(!list.length){
+    box.innerHTML = st.fav&&!favs.size
+      ? `<div class="empty">아직 담은 문장이 없습니다.<br>마음에 드는 카드의 <b>☆ 담기</b>를 눌러 모아 보세요.</div>`
+      : `<div class="empty">조건에 맞는 문장이 없습니다.<br><button class="mini" data-reset>필터 전체 해제</button></div>`;
+    return;
+  }
+  const groups = st.cat==="all" ? CATS.map(c=>({c,arr:list.filter(q=>q.c===c.id)})).filter(g=>g.arr.length) : [{c:null,arr:list}];
+  box.innerHTML=groups.map(g=>(g.c?`<div class="sec"><h2>${g.c.name}</h2><span>${g.arr.length}개</span></div>`:"")+g.arr.map(card).join("")).join("");
+}
+function scrollToList(){
+  const y=$("#list").getBoundingClientRect().top+scrollY-$("#controls").offsetHeight-6;
+  window.scrollTo({top:Math.max(0,y),behavior:"smooth"});
+}
+function updateBar(){ $("#favN").textContent=favs.size; $("#bar").classList.toggle("show",favs.size>0); }
+function refreshFavButtons(id){
+  document.querySelectorAll(`[data-act="fav"][data-id="${id}"]`).forEach(b=>{
+    const on=favs.has(id); b.classList.toggle("on",on); b.setAttribute("aria-pressed",on); b.textContent=on?"★ 담음":"☆ 담기"; });
+}
+
+/* 오늘의 명언 */
+const POOL=Q.filter(q=>!q.items&&q.k!=="cau"); // 출처 미확인 문장은 오늘의 명언에서 제외
+let todayQ=POOL[Math.floor((Date.now()+9*3600e3)/864e5)%POOL.length];
+function renderToday(isRandom){
+  const q=todayQ;
+  $("#today").innerHTML=`<div class="lbl">${isRandom?"RANDOM PICK":"QUOTE OF THE DAY · 오늘의 명언"}</div>
+    ${quoteBody(q).replace(/<mark>|<\/mark>/g,"")}
+    <div class="author">— <b>${esc(q.k==="own"?OWN:q.a)}</b>${q.s?" · "+esc(q.s):""} <span class="badge k-${q.k}" style="margin-left:4px">${TRUST[q.k]}</span></div>
+    <div class="acts"><button class="act" id="rand">🎲 다른 문장</button>${actions(q)}</div>`;
+}
+
+/* ───────── 이벤트 ───────── */
+document.addEventListener("click", async e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  if(b.id==="rand"){ let n; do{ n=POOL[Math.floor(Math.random()*POOL.length)]; }while(n===todayQ&&POOL.length>1); todayQ=n; renderToday(true); return; }
+  if(b.dataset.cat){ st.cat=b.dataset.cat; st.fav=false; render(true); scrollToList(); history.replaceState(null,"",st.cat==="all"?location.pathname:"#"+st.cat); return; }
+  if(b.dataset.trust){ st.trust=b.dataset.trust; render(true); return; }
+  if(b.dataset.favonly){ st.fav=!st.fav; render(true); return; }
+  if(b.hasAttribute("data-reset")){ resetAll(); return; }
+  const act=b.dataset.act; if(!act) return;
+  const q=Q.find(x=>x.id===b.dataset.id); if(!q) return;
+  if(act==="copy"){ const ok=await copyText(textOf(q)); if(ok){ b.classList.add("done"); b.textContent="✓ 복사됨"; setTimeout(()=>{ b.classList.remove("done"); b.textContent="⧉ 복사"; },1300); } }
+  else if(act==="fav"){ favs.has(q.id)?favs.delete(q.id):favs.add(q.id); saveFav(); refreshFavButtons(q.id); updateBar(); if(st.fav) render(false); }
+  else if(act==="share"){ share(q); }
+  else if(act==="img"){ saveImage(q); }
+});
+function resetAll(){ st.cat="all"; st.trust="all"; st.fav=false; st.q=""; $("#q").value=""; $("#clear").classList.remove("show"); render(true); history.replaceState(null,"",location.pathname); }
+$("#reset").onclick=resetAll;
+
+let deb; const qi=$("#q");
+qi.addEventListener("input",()=>{ $("#clear").classList.toggle("show",!!qi.value); clearTimeout(deb); deb=setTimeout(()=>{ st.q=qi.value.trim(); render(false); },200); });
+qi.addEventListener("focus",()=>document.body.classList.add("typing"));
+qi.addEventListener("blur",()=>document.body.classList.remove("typing"));
+$("#clear").onclick=()=>{ qi.value=""; st.q=""; $("#clear").classList.remove("show"); render(false); qi.focus(); };
+
+$("#copyVisible").onclick=async()=>{ const l=filtered(); if(!l.length) return; if(await copyText(joinTexts(l))) toast(l.length+"개 항목을 복사했습니다"); };
+$("#copyFav").onclick=async()=>{ const l=Q.filter(q=>favs.has(q.id)); if(!l.length) return; if(await copyText(joinTexts(l))) toast("내 모음 "+l.length+"개를 복사했습니다"); };
+$("#showFav").onclick=()=>{ st.fav=true; st.cat="all"; st.trust="all"; render(true); scrollToList(); };
+
+$("#panelBtn").onclick=()=>{ const p=$("#panel"), open=p.hidden; p.hidden=!open; $("#panelBtn").setAttribute("aria-expanded",open); if(open) p.scrollIntoView({behavior:"smooth",block:"nearest"}); };
+function syncTheme(){ const dark=document.documentElement.dataset.theme==="dark"; document.querySelector('meta[name="theme-color"]').content=dark?"#0d0d0e":"#f7f5ef"; }
+$("#theme").onclick=()=>{ const r=document.documentElement; if(r.dataset.theme==="dark"){ delete r.dataset.theme; store.set("quote-theme","light"); } else { r.dataset.theme="dark"; store.set("quote-theme","dark"); } syncTheme(); };
+function segInit(sel,cur,fn){ const s=$(sel); const set=v=>s.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.v===v));
+  set(cur); s.addEventListener("click",e=>{ const b=e.target.closest("button"); if(!b) return; set(b.dataset.v); fn(b.dataset.v); }); }
+segInit("#imgStyle",imgStyle,v=>{ imgStyle=v; store.set("quote-img",v); });
+segInit("#fsSeg",document.documentElement.dataset.fs||"m",v=>{ if(v==="m") delete document.documentElement.dataset.fs; else document.documentElement.dataset.fs=v; store.set("quote-fs",v==="m"?"":v); });
+["withAuthor","numbered"].forEach(id=>{ const el=$("#"+id); const v=store.get("quote-"+id,null); if(v!==null) el.checked=v==="1"; el.onchange=()=>store.set("quote-"+id,el.checked?"1":"0"); });
+
+$("#exportFav").onclick=()=>{
+  if(!favs.size){ toast("내 모음이 비어 있습니다"); return; }
+  const blob=new Blob([JSON.stringify({app:"quotes",ver:2,favs:[...favs]},null,1)],{type:"application/json"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="내모음_백업.json"; document.body.appendChild(a); a.click(); a.remove();
+};
+$("#importFav").onclick=()=>$("#importFile").click();
+$("#importFile").onchange=e=>{
+  const f=e.target.files[0]; if(!f) return; const r=new FileReader();
+  r.onload=()=>{ try{ const d=JSON.parse(r.result); let n=0; (d.favs||[]).forEach(id=>{ if(Q.some(q=>q.id===id)&&!favs.has(id)){ favs.add(id); n++; } });
+    saveFav(); updateBar(); render(false); renderToday(); toast(n+"개를 불러왔습니다"); }catch(err){ toast("백업 파일을 읽지 못했습니다"); } };
+  r.readAsText(f); e.target.value="";
+};
+
+const tp=$("#totop"), ctr=$("#controls");
+window.addEventListener("scroll",()=>{ tp.classList.toggle("show",scrollY>700); ctr.classList.toggle("stuck",ctr.getBoundingClientRect().top<=0&&scrollY>200); },{passive:true});
+tp.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
+
+/* ───────── 시작 ───────── */
+$("#total").textContent=`명언 ${Q.filter(q=>!q.items).length}개 · 인생 원칙 목록 ${Q.filter(q=>q.items).length}개`;
+buildChips(); syncTheme();
+(function fromHash(){
+  const h=decodeURIComponent(location.hash.slice(1));
+  if(CATS.some(c=>c.id===h)||h==="best"){ st.cat=h; }
+  render(true); renderToday(); updateBar();
+  if(h&&Q.some(q=>q.id===h)){ setTimeout(()=>{ const el=document.getElementById(h); if(el){ el.scrollIntoView({behavior:"smooth",block:"center"}); el.classList.add("flash"); setTimeout(()=>el.classList.remove("flash"),2500); } },300); }
+})();
+</script>
+</body>
+</html>
