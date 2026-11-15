@@ -182,17 +182,118 @@ body.typing .bar{transform:translateY(110%)}
   details.memo{display:none}
   body{padding:0}
 }
+
+/* infographic experience */
+.wrap{max-width:1100px}
+.hero{padding-top:22px}
+/* 표지: 외부 사진 없이 원본 첫 이미지(민트 배경 + 손글씨)를 살린 디자인 */
+.cover{min-height:380px;position:relative;overflow:hidden;display:grid;place-items:center;background:radial-gradient(circle at 85% 18%,rgba(255,255,255,.55) 0 70px,transparent 71px),radial-gradient(circle at 12% 88%,rgba(255,226,122,.55) 0 90px,transparent 91px),linear-gradient(160deg,#b9e0e0,#9fcfd0);border:1px solid #8fc3c4}
+.cover-inner{position:relative;z-index:1}
+.cover .eyebrow{font-size:12px;letter-spacing:.28em;color:#1f6b6e;font-weight:700}
+.cover h1{font-family:'Gaegu',cursive;font-size:clamp(40px,7vw,64px);line-height:1.25;color:#1d1d1d!important;margin:14px 0}
+.cover h1 strong{font-weight:700;background:linear-gradient(transparent 60%,#ffe27a 60%)}
+.cover p{color:#24494a!important;font-size:14px;line-height:1.8}
+.cta-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.cover .hero-cta{display:inline-flex;background:#1f6b6e;border:0;border-radius:999px;padding:11px 22px;font-weight:700;color:#fff;text-decoration:none;cursor:pointer;font-size:15px}
+.cover .hero-cta.alt{background:#fffdf7;color:#1f6b6e;border:1px solid #1f6b6e}
+[data-theme="dark"] .cover{background:linear-gradient(160deg,#1d3a3b,#132a2b);border-color:#2f5556}
+[data-theme="dark"] .cover h1{color:#f3f1ea!important}
+[data-theme="dark"] .cover h1 strong{background:linear-gradient(transparent 60%,rgba(245,213,71,.45) 60%)}
+[data-theme="dark"] .cover p,[data-theme="dark"] .cover .eyebrow{color:#a9cfd0!important}
+[data-theme="dark"] .infobox .visual svg{filter:brightness(.78) saturate(.9)}
+/* 명언 목록은 읽기 좋은 폭(720px) 유지, 인포그래픽만 넓게 */
+.today,#controls,#panel,#list,details.guide,.foot,.archive-header{max-width:720px;margin-left:auto;margin-right:auto}
+.section-caption{font-size:12px;letter-spacing:.17em;color:var(--accent);font-weight:800;margin:0 0 10px}
+.infographic{margin:22px 0 34px}
+.infographic h2{font-family:'Gowun Batang',serif;font-size:clamp(25px,4vw,34px);line-height:1.35;margin:0 0 10px}
+.infographic .sub{color:var(--muted);font-size:14px;margin:0 0 18px}
+.info-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.infobox{border:1px solid var(--line);background:var(--card);border-radius:19px;overflow:hidden;box-shadow:var(--shadow)}
+.infobox .visual{height:125px;background:var(--card2);display:grid;place-items:center;overflow:hidden}
+.infobox .visual svg{width:100%;height:100%;display:block}
+.infobox .detail{padding:15px 16px 17px}
+.infobox .num{display:inline-block;font-size:10px;color:var(--accent);font-weight:800;letter-spacing:.1em}
+.infobox h3{font-size:17px;margin:4px 0 6px;line-height:1.35}
+.infobox p{font-size:13px;color:var(--muted);margin:0;line-height:1.65}
+.infobox.wide{grid-column:span 2}
+.infobox.wide .visual{height:125px}
+.story-strip{margin:26px 0;padding:22px;background:#123f41;border-radius:22px;color:white;overflow:hidden}
+.story-strip h2{color:#fff}.story-strip .section-caption{color:#a8e8d9}.story-strip .sub{color:#d0e7e3}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;align-items:stretch}
+.step{padding:15px 10px;background:#205758;border:1px solid #427675;border-radius:15px;text-align:center}
+.step .step-icon{font-size:29px;margin-bottom:6px;display:block}
+.step strong{display:block;color:#ffdf78;font-size:16px}.step small{color:#d7e9e5;font-size:12px}
+.story-tip{font-size:13px;color:#e9f5ef;margin:15px 0 0}
+.info-split{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.chart-card,.table-card{padding:19px;background:var(--card);border:1px solid var(--line);border-radius:19px;box-shadow:var(--shadow);min-width:0}
+.chart-card h3,.table-card h3{font-size:17px;margin:0 0 8px}
+.chart-legend{font-size:12px;color:var(--muted);margin:0 0 15px}
+.chartrow{display:grid;grid-template-columns:92px 1fr 26px;gap:8px;align-items:center;font-size:12px;margin:9px 0}
+.chartrow .track{height:12px;background:var(--card2);border-radius:99px;overflow:hidden}
+.chartrow .fill{height:100%;background:linear-gradient(90deg,#268d8c,#83c9ad);border-radius:99px}
+.chartrow b{text-align:right;font-size:12px}
+.table-card table{border-collapse:collapse;width:100%;font-size:12px}
+.table-card th,.table-card td{padding:11px 6px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.table-card th{background:var(--card2);color:var(--accent);font-weight:800}.table-card tr:last-child td{border:0}
+.photo-quote{margin:24px 0;border-radius:21px;min-height:230px;overflow:hidden;position:relative;display:flex;align-items:center;padding:28px;background:radial-gradient(circle at 88% 30%,#f2c230 0 46px,rgba(242,194,48,.25) 47px 80px,transparent 81px),linear-gradient(180deg,transparent 62%,#0f3436 62%),linear-gradient(120deg,#123f41,#1f6b6e 70%,#3c8a85);color:#fff}
+.photo-quote blockquote{position:relative;margin:0;max-width:520px;font-family:'Gowun Batang',serif;font-size:clamp(21px,3.2vw,32px);line-height:1.6;font-weight:700}
+.photo-quote small{display:block;position:relative;margin-top:10px;color:#e6eee8;font-size:12px}
+.photo-credit{font-size:10px;color:var(--muted);margin-top:-18px;margin-bottom:24px;text-align:right}
+.info-actions{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.info-actions button{border:0;border-radius:10px;background:var(--accent);color:var(--accent-ink);font-weight:700;padding:10px 14px;cursor:pointer}
+.info-actions button.secondary{background:var(--card2);color:var(--text);border:1px solid var(--line)}
+.archive-header{border-top:1px solid var(--line);padding-top:26px;margin-top:32px}
+.archive-header h2{font-family:'Gowun Batang',serif;font-size:30px;margin:0 0 6px}
+.archive-header p{color:var(--muted);font-size:13px;margin:0}
+@media(max-width:700px){.info-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.infobox.wide{grid-column:span 2}.info-split{grid-template-columns:1fr}.cover{min-height:340px}.chartrow{grid-template-columns:98px 1fr 24px}}
+@media(max-width:430px){.info-grid{gap:8px}.infobox .detail{padding:12px}.infobox .visual{height:110px}.infobox h3{font-size:15px}.infobox p{font-size:12px}.steps{grid-template-columns:repeat(2,1fr)}.cover{min-height:300px;padding:27px 14px}.photo-quote{min-height:225px;padding:22px}}
+@media print{.cover,.photo-quote{-webkit-print-color-adjust:exact;print-color-adjust:exact}.info-actions{display:none}.infobox,.story-strip,.chart-card,.table-card{break-inside:avoid}.info-split{display:block}.chart-card{margin-bottom:12px}}
+
 </style>
 </head>
 <body>
 <div class="wrap">
   <header class="hero">
     <div class="cover">
-      <h1>살면서 봤던<br>명언중에<br>진짜 최고다</h1>
-      <p id="total"></p>
+      <div class="cover-inner">
+        <div class="eyebrow">LIFE · WISDOM · DAILY CHOICES</div>
+        <h1>살면서 봤던<br>명언중에<br><strong>진짜 최고다</strong></h1>
+        <p>작은 선택부터 인생의 후반전까지<br>한눈에 보고, 깊이 읽고, 마음에 간직하는 명언 모음</p>
+        <div class="cta-row">
+          <button class="hero-cta" id="goSearch" type="button">🔍 명언 바로 찾기</button>
+          <a class="hero-cta alt" href="#infographic">한눈에 보기 ↓</a>
+        </div>
+        <p id="total" style="font-size:12px;opacity:.9;margin-top:12px"></p>
+      </div>
     </div>
     <section class="today" id="today" aria-label="오늘의 명언"></section>
   </header>
+
+<section class="infographic" id="infographic" aria-label="인생 명언 핵심 인포그래픽">
+ <p class="section-caption">01 / LIFE PRINCIPLES</p>
+ <h2>인생을 지탱하는 다섯 가지 원칙</h2>
+ <p class="sub">첨부 이미지 속 5개 목록을 그림으로 풀어냈습니다. 원문은 아래 명언 모음에서도 확인할 수 있습니다.</p>
+ <div class="info-grid">
+  <article class="infobox"><div class="visual"><svg viewBox="0 0 320 145" role="img" aria-label="가파른 산을 오르는 사람"><rect width="320" height="145" fill="#e8e7dc"/><circle cx="252" cy="35" r="23" fill="#f4c95a"/><path d="M0 145L100 51l55 57 55-75 110 112Z" fill="#649e96"/><path d="M0 145L100 51l55 57 25-32 76 69Z" fill="#336a69"/><path d="M100 51L80 70l20-9 13 16 14 8Z" fill="#fff7de"/><circle cx="172" cy="75" r="9" fill="#2e3439"/><path d="M172 85l-8 25 15 1-4-26m-9 7-12 13m20-10 15 13m-24 4-11 18m23-18 10 18" fill="none" stroke="#29343b" stroke-width="5" stroke-linecap="round"/></svg></div><div class="detail"><span class="num">01 · 현실</span><h3>인생에 절대 없는 것</h3><p>공짜 · 고통 없는 성장 · 쉬운 길</p></div></article>
+  <article class="infobox"><div class="visual"><svg viewBox="0 0 320 145" role="img" aria-label="금이 간 왕관과 멈춘 시계"><rect width="320" height="145" fill="#fae9df"/><circle cx="160" cy="77" r="47" fill="#f6be7a"/><path d="M108 57l17 20 23-29 17 27 30-31 10 42h-94Z" fill="#c77a43"/><path d="M156 46l6 25-16 18" fill="none" stroke="#f8ecdc" stroke-width="4"/><rect x="113" y="89" width="97" height="13" rx="5" fill="#985c38"/><path d="M230 48a30 30 0 1 1 0 59" fill="none" stroke="#b58974" stroke-width="7" stroke-linecap="round"/><path d="M230 78v-14m0 14 10 5" stroke="#985c38" stroke-width="4" stroke-linecap="round"/></svg></div><div class="detail"><span class="num">02 · 경계</span><h3>인생을 망치는 세 가지</h3><p>술 · 자만 · 게으름</p></div></article>
+  <article class="infobox"><div class="visual"><svg viewBox="0 0 320 145" role="img" aria-label="성장하는 나무와 책"><rect width="320" height="145" fill="#e6f2dc"/><path d="M0 134q80-21 160 0t160-5v16H0" fill="#bad5a5"/><path d="M159 126V58" stroke="#83583c" stroke-width="14" stroke-linecap="round"/><circle cx="155" cy="55" r="35" fill="#76ab75"/><circle cx="130" cy="72" r="26" fill="#519368"/><circle cx="185" cy="72" r="27" fill="#4d936b"/><path d="M45 119q35-20 63 0v15q-29-17-63 0zm63 0q34-20 62 0v15q-28-17-62 0z" fill="#fff7df" stroke="#658b87" stroke-width="3"/></svg></div><div class="detail"><span class="num">03 · 축적</span><h3>젊을 때 쌓아야 할 것</h3><p>체력 · 실수와 실패 · 자기 확신과 자신감</p></div></article>
+  <article class="infobox"><div class="visual"><svg viewBox="0 0 320 145" role="img" aria-label="무거운 짐을 내려놓는 장면"><rect width="320" height="145" fill="#e7e5f1"/><path d="M0 130Q150 95 320 125v20H0" fill="#b6afd0"/><rect x="75" y="58" width="87" height="67" rx="12" fill="#86799e"/><rect x="89" y="47" width="58" height="13" rx="7" fill="none" stroke="#86799e" stroke-width="7"/><path d="M207 104l24-21 20 9 17-28" fill="none" stroke="#438e83" stroke-width="11" stroke-linecap="round"/><path d="M255 63l13 1-1 14" fill="none" stroke="#438e83" stroke-width="6" stroke-linecap="round"/></svg></div><div class="detail"><span class="num">04 · 내려놓기</span><h3>반드시 버려야 할 것</h3><p>허세와 사치 · 비교, 열등감 · 자기 연민</p></div></article>
+  <article class="infobox wide"><div class="visual"><svg viewBox="0 0 620 145" role="img" aria-label="따뜻한 빛 아래에서 책을 읽으며 미래를 바라보는 사람"><rect width="620" height="145" fill="#fff2d8"/><circle cx="470" cy="42" r="36" fill="#f0c56c" opacity=".8"/><path d="M0 135Q130 80 255 124T620 112v33H0" fill="#d5d4a7"/><path d="M180 132V86m0-9a17 17 0 1 0 0-34 17 17 0 0 0 0 34m0 7-30 24m30-21 29 13m-29 1-18 35m18-35 30 35" fill="none" stroke="#5a6d68" stroke-width="9" stroke-linecap="round"/><path d="M280 96q29-17 58 0v32q-29-17-58 0zm58 0q28-17 58 0v32q-30-17-58 0z" fill="#fff" stroke="#4d8c83" stroke-width="4"/><path d="M342 52l7-15 7 15 16 3-13 11 4 17-14-9-14 9 4-17-13-11z" fill="#f0c56c"/></svg></div><div class="detail"><span class="num">05 · 지키기</span><h3>절대 잃지 말아야 할 것</h3><p>배움의 자세 · 꿈꾸는 마음 · 나 자신을 믿는 힘</p></div></article>
+ </div>
+ <section class="story-strip" aria-label="선택과 습관의 흐름도">
+  <p class="section-caption">02 / SMALL CHOICES</p><h2>작은 선택은 어떻게 삶이 될까?</h2><p class="sub">원본 이미지의 '선택→습관→성격→운명' 메시지를 시각화한 개념도입니다. 과학적 예측 공식은 아닙니다.</p>
+  <div class="steps"><div class="step"><span class="step-icon">🌱</span><strong>선택</strong><small>오늘의 작은 행동</small></div><div class="step"><span class="step-icon">🔁</span><strong>습관</strong><small>내일 반복되는 실천</small></div><div class="step"><span class="step-icon">🧭</span><strong>성격</strong><small>1년 후의 나</small></div><div class="step"><span class="step-icon">🌅</span><strong>운명</strong><small>결국 달라지는 삶</small></div></div>
+  <p class="story-tip">※ 원문의 '운명'을 결과가 정해졌다는 뜻으로 단정하지 않고, 삶의 방향이 달라질 수 있다는 의미로 해석했습니다.</p>
+ </section>
+ <p class="section-caption">03 / COLLECTION AT A GLANCE</p><h2>명언집을 데이터로 보기</h2><p class="sub">아래 그래프의 숫자는 인생 성공률 같은 통계가 아니라, 이 HTML에 실제 수록된 명언·목록 항목 수입니다.</p>
+ <div class="info-split">
+  <section class="chart-card"><h3>주제별 수록 항목</h3><p class="chart-legend">막대 길이 = 해당 주제의 항목 수</p><div id="topicChart" role="img" aria-label="수록 명언의 주제별 분포 막대그래프"></div></section>
+  <section class="table-card"><h3>마음을 위한 1-1-1 실천표</h3><p class="chart-legend">명언을 실제 생활에 연결하는 간단한 방법</p><table><thead><tr><th>단계</th><th>무엇을 하나요?</th><th>실천 예시</th></tr></thead><tbody><tr><td><b>멈춤</b></td><td>줄이고 싶은 습관 1가지</td><td>SNS 비교 시간 줄이기</td></tr><tr><td><b>쌓음</b></td><td>좋은 행동 1가지 반복</td><td>매일 15분 걷기</td></tr><tr><td><b>기록</b></td><td>매주 변화 1가지 적기</td><td>주말에 한 줄 회고</td></tr></tbody></table><p class="hint">'30일이면 누구나 습관이 완성된다'는 식의 단정은 하지 않습니다. 작은 실천을 지속해 보는 예시입니다.</p></section>
+ </div>
+ <section class="photo-quote" aria-label="풍경 사진과 인생 명언"><div><blockquote>“어제는 고칠 수 없지만,<br>어제와 똑같은 오늘은<br>피할 수 있다.”</blockquote><small>— 편집·재구성 문장</small></div></section>
+ <div class="info-actions"><button id="goArchive">명언 전체 탐색 ↓</button><button class="secondary" id="goBest">편집자 BEST 10 보기 ★</button><button class="secondary" id="printInfo">인포그래픽 인쇄</button></div>
+ <div class="archive-header" id="archiveHead"><p class="section-caption">04 / QUOTE LIBRARY</p><h2>명언 전체 모음</h2><p>원전 근거, 출처 미확인, 편집·재구성을 구분하여 검색하고 저장할 수 있습니다.</p></div>
+</section>
 
   <div class="controls" id="controls">
     <div class="searchbox">
@@ -257,7 +358,7 @@ body.typing .bar{transform:translateY(110%)}
       <h3>실행 전략: 1-1-1 룰</h3>
       <ul>
         <li><b>멈추기</b>: '망치는 것·버려야 할 것' 중 1가지를 골라 30일 동안 멈춰 봅니다. 예: 무의식적으로 SNS 보며 비교하기</li>
-        <li><b>쌓기</b>: '쌓아야 할 것' 중 1가지를 하루 15분 습관으로 실천해 봅니다. 예: 하루 20분 걷기</li>
+        <li><b>쌓기</b>: '쌓아야 할 것' 중 1가지를 하루 15분 습관으로 실천해 봅니다. 예: 하루 15분 걷기</li>
         <li><b>기록하기</b>: 매주 작은 선택을 적어 자기 확신의 근거로 삼습니다.</li>
       </ul>
     </div>
@@ -290,7 +391,7 @@ const IMG = "원본 이미지 문구 · 출처 표기 없음";
 
 const Q = [
 /* ── v1 수록 84개 (순서 유지: 이전 버전 ★ 이전용) ── */
-{id:"r1",c:"rule",k:"orig",h:"인생에 절대 없는 것",items:["공짜","고통없는 성장","쉬운 길"]},
+{id:"r1",c:"rule",k:"orig",h:"인생에 절대 없는 것",items:["공짜","고통 없는 성장","쉬운 길"]},
 {id:"r2",c:"rule",k:"orig",h:"인생을 망치는 3가지",items:["술","자만","게으름"],n:"학생 대상이라면 '술'을 '스마트폰·무의식적 습관'으로 바꾸는 것을 권합니다."},
 {id:"r3",c:"rule",k:"orig",h:"젊을 때 쌓아야 하는 것",items:["체력","실수와 실패","자기 확신과 자신감"]},
 {id:"r4",c:"rule",k:"orig",h:"반드시 버려야 할 것",items:["허세와 사치","비교, 열등감","자기 연민"],n:"'자기 연민'을 버리라는 말이 '쉬지 말라'는 뜻은 아닙니다. 건강한 휴식·자기 돌봄과는 구분하세요."},
@@ -707,6 +808,23 @@ buildChips(); syncTheme();
   render(true); renderToday(); updateBar();
   if(h&&Q.some(q=>q.id===h)){ setTimeout(()=>{ const el=document.getElementById(h); if(el){ el.scrollIntoView({behavior:"smooth",block:"center"}); el.classList.add("flash"); setTimeout(()=>el.classList.remove("flash"),2500); } },300); }
 })();
+
+/* ── infographic chart sourced directly from Q ── */
+(function renderInfographicChart(){
+ const data=CATS.map(c=>({...c,n:Q.filter(q=>q.c===c.id).length}));
+ const max=Math.max(...data.map(d=>d.n),1);
+ const root=document.getElementById('topicChart');
+ if(root) root.innerHTML=data.map(d=>`<div class="chartrow"><span>${esc(d.name)}</span><div class="track"><div class="fill" style="width:${(d.n/max*100).toFixed(1)}%"></div></div><b>${d.n}</b></div>`).join('');
+})();
+document.getElementById('goArchive').addEventListener('click',()=>scrollToList());
+document.getElementById('goSearch').addEventListener('click',()=>{
+  const y=document.getElementById('archiveHead').getBoundingClientRect().top+scrollY-8;
+  window.scrollTo({top:y,behavior:'smooth'});
+  setTimeout(()=>document.getElementById('q').focus({preventScroll:true}),600);
+});
+document.getElementById('goBest').addEventListener('click',()=>{st.cat='best';st.fav=false;render(true);scrollToList();});
+document.getElementById('printInfo').addEventListener('click',()=>window.print());
+
 </script>
 </body>
 </html>
